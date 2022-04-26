@@ -12,7 +12,7 @@ export default class Categories extends Component {
   async componentDidMount() {
     const fetchCategories = await getCategories();
     const categoriesNames = fetchCategories.map((element) => (
-      <li key={ element.id }>{ element.name }</li>));
+      <li data-testid="category" key={ element.id }>{ element.name }</li>));
     this.setState({
       categories: categoriesNames,
     });
