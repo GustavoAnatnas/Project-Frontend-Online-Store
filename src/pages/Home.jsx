@@ -22,7 +22,6 @@ export default class Home extends Component {
   fetchProducts = async () => {
     const { inputSearch } = this.state;
     const fetchProducts = await getProducts(inputSearch);
-    // console.log(fetchProducts);
     const resultsProducts = fetchProducts.results.map((product) => (
       <div data-testid="product" key={ product.id }>
         <h3>{product.title}</h3>
