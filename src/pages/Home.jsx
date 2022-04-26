@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Categories from '../components/Categories';
 
 export default class Home extends Component {
   render() {
@@ -21,6 +22,9 @@ export default class Home extends Component {
             Pesquisar
           </button>
         </Link>
+        <div>
+          <Categories />
+        </div>
       </div>
     );
   }
