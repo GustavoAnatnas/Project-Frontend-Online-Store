@@ -34,10 +34,10 @@ export default class Categories extends Component {
     });
   }
 
-onChecked = ({ target }) => {
+onChecked = async ({ target }) => {
   const { value } = target;
 
-  this.setState({
+  await this.setState({
     selected: value,
   });
   this.fetchProductsByCategories();
@@ -45,7 +45,9 @@ onChecked = ({ target }) => {
 
 fetchProductsByCategories = async () => {
   const { selected } = this.state;
-  this.setState({ loading: true });
+  this.setState({
+    loading: true,
+  });
   const fetchProducts = await getProductsFromCategoryAndQuery(selected);
   const resultsProducts = fetchProducts.results.map((product) => (
     <div data-testid="product" key={ product.id }>
@@ -55,8 +57,8 @@ fetchProductsByCategories = async () => {
     </div>
   ));
   this.setState({
-    products: resultsProducts,
     loading: false,
+    products: resultsProducts,
   });
 }
 
