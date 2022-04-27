@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import Loading from './Loading';
 
 export default class Categories extends Component {
   constructor() {
@@ -8,6 +9,7 @@ export default class Categories extends Component {
       categories: [],
       selected: '',
       products: [],
+      loading: false,
     };
   }
 
@@ -43,6 +45,7 @@ onChecked = ({ target }) => {
 
 fetchProductsByCategories = async () => {
   const { selected } = this.state;
+  this.setState({ loading: true });
   const fetchProducts = await getProductsFromCategoryAndQuery(selected);
   const resultsProducts = fetchProducts.results.map((product) => (
     <div data-testid="product" key={ product.id }>
@@ -53,15 +56,17 @@ fetchProductsByCategories = async () => {
   ));
   this.setState({
     products: resultsProducts,
+    loading: false,
   });
 }
 
 render() {
-  const { categories, products } = this.state;
+  const { categories, products, loading } = this.state;
   return (
     <div>
       {categories}
-      {products}
+
+      {loading ? <Loading /> : products}
     </div>
   );
 }
