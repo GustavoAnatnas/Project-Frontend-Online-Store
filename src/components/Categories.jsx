@@ -62,12 +62,23 @@ fetchProductsByCategories = async () => {
         <span>Detalhes</span>
 
       </Link>
+      <button
+        type="button"
+        onClick={ this.onClick }
+      >
+        Adicionar ao Carrinho
+
+      </button>
     </div>
   ));
   this.setState({
     loading: false,
     products: resultsProducts,
   });
+}
+
+onClick = () => {
+
 }
 
 render() {
