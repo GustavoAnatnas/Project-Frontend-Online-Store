@@ -10,10 +10,22 @@ export default class Cart extends Component {
 
   render() {
     const { productCart } = this.state;
+    const condicional = productCart.length === 0;
     return (
+
       <div>
-        {productCart}
-        <h3 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h3>
+        {condicional
+            && <h3 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h3>}
+        {productCart.map((details) => (
+          <div key={ details.id }>
+            <div>
+              <h3 data-testid="shopping-cart-product-name">{details.title}</h3>
+              <img src={ details.thumbnail } alt={ details.title } />
+              <p>{`R$:${details.price}`}</p>
+              <p data-testid="shopping-cart-product-quantity">1</p>
+            </div>
+          </div>
+        )) }
       </div>
     );
   }

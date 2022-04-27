@@ -65,6 +65,7 @@ fetchProductsByCategories = async () => {
       </Link>
       <button
         type="button"
+        data-testid="product-add-to-cart"
         onClick={ () => this.onClick(product) }
       >
         Adicionar ao Carrinho
