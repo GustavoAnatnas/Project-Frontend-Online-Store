@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Loading from './Loading';
 
@@ -54,6 +55,13 @@ fetchProductsByCategories = async () => {
       <h3>{product.title}</h3>
       <img src={ product.thumbnail } alt={ product.title } />
       <p>{`R$:${product.price}`}</p>
+      <Link
+        to={ `/productCard/${product.id}` }
+        data-testid="product-detail-link"
+      >
+        <span>Detalhes</span>
+
+      </Link>
     </div>
   ));
   this.setState({

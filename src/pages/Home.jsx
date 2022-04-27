@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
+import Loading from '../components/Loading';
 import { getProducts } from '../services/api';
 
 export default class Home extends Component {
@@ -9,6 +10,7 @@ export default class Home extends Component {
     this.state = {
       inputSearch: '',
       products: [],
+      loading: false,
     };
   }
 
@@ -21,19 +23,24 @@ export default class Home extends Component {
 
   fetchProducts = async () => {
     const { inputSearch } = this.state;
+    this.setState({ loading: true });
     const fetchProducts = await getProducts(inputSearch);
     const resultsProducts = fetchProducts.results.map((product) => (
       <div data-testid="product" key={ product.id }>
         <h3>{product.title}</h3>
         <img src={ product.thumbnail } alt={ product.title } />
         <p>{`R$:${product.price}`}</p>
+        <span>Detalhes</span>
       </div>
     ));
-    this.setState({ products: resultsProducts });
+    this.setState({
+      products: resultsProducts,
+      loading: false,
+    });
   }
 
   render() {
-    const { inputSearch, products } = this.state;
+    const { inputSearch, products, loading } = this.state;
     return (
       <div>
         <h1
@@ -67,7 +74,7 @@ export default class Home extends Component {
           <Categories />
         </div>
         <div>
-          { products }
+          {loading ? <Loading /> : products }
         </div>
 
       </div>
