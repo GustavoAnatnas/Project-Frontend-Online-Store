@@ -44,7 +44,6 @@ onChecked = ({ target }) => {
 fetchProductsByCategories = async () => {
   const { selected } = this.state;
   const fetchProducts = await getProductsFromCategoryAndQuery(selected);
-  // console.log(fetchProducts);
   const resultsProducts = fetchProducts.results.map((product) => (
     <div data-testid="product" key={ product.id }>
       <h3>{product.title}</h3>
