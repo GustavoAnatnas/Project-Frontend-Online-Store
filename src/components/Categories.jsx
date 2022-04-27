@@ -39,6 +39,7 @@ onChecked = async ({ target }) => {
 
   this.setState({ selected: value }, async () => {
     await this.fetchProductsByCategories();
+    // resolução de erro
   });
 }
 
