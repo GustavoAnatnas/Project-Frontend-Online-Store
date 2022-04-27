@@ -64,7 +64,7 @@ fetchProductsByCategories = async () => {
       </Link>
       <button
         type="button"
-        onClick={ this.onClick }
+        onClick={ () => this.onClick(product) }
       >
         Adicionar ao Carrinho
 
@@ -77,8 +77,8 @@ fetchProductsByCategories = async () => {
   });
 }
 
-onClick = () => {
-
+onClick = (product) => {
+  localStorage.setItem('cart', JSON.stringify(product));
 }
 
 render() {
