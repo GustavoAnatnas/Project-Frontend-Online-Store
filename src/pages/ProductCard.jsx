@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { getProductDetails } from '../services/api';
+import { getProductDetails } from '../services/api';
 
 export default class ProductCard extends Component {
   constructor() {
@@ -9,13 +9,13 @@ export default class ProductCard extends Component {
     };
   }
 
-  // async componentDidMount() {
-  //   // const { match: { params: { id } } } = this.props;
-  //   const result = await getProductDetails(id);
-  //   this.state({
-  //     details: result,
-  //   });
-  // }
+  async componentDidMount() {
+    const { match: { params: { id } } } = this.props;
+    const result = await getProductDetails(id);
+    this.setState({
+      details: result,
+    });
+  }
 
   render() {
     const { details } = this.state;
