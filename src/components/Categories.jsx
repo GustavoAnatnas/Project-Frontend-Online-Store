@@ -34,20 +34,19 @@ export default class Categories extends Component {
     });
   }
 
-onChecked = ({ target }) => {
+onChecked = async ({ target }) => {
   const { value } = target;
 
-  this.setState({
-    selected: value,
+  this.setState({ selected: value }, async () => {
+    await this.fetchProductsByCategories();
   });
-  this.fetchProductsByCategories();
 }
 
 fetchProductsByCategories = async () => {
   const { selected } = this.state;
   this.setState({ loading: true });
   const fetchProducts = await getProductsFromCategoryAndQuery(selected);
-  const resultsProducts = fetchProducts.results.map((product) => (
+  const resultsProducts = await fetchProducts.results.map((product) => (
     <div data-testid="product" key={ product.id }>
       <h3>{product.title}</h3>
       <img src={ product.thumbnail } alt={ product.title } />
