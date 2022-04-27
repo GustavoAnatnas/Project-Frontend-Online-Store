@@ -45,17 +45,20 @@ export default class ProductCard extends Component {
           <aside>
             {attributes}
           </aside>
+          <p data-testid="shopping-cart-product-quantity">1</p>
           <Link data-testid="shopping-cart-button" to="/Cart">
-            <button
-              type="button"
-              data-testid="product-detail-add-to-cart"
-              onClick={ () => this.onClick(details) }
-            >
-              Adicionar ao Carrinho
-
+            <button type="button">
+              Carrinho
             </button>
           </Link>
+          <button
+            type="button"
+            data-testid="product-detail-add-to-cart"
+            onClick={ () => this.onClick(details) }
+          >
+            Adicionar ao Carrinho
 
+          </button>
         </div>
       </div>
     );
