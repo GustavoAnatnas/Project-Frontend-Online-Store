@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { getProductDetails } from '../services/api';
 
 export default class ProductCard extends Component {
@@ -40,3 +41,12 @@ export default class ProductCard extends Component {
     );
   }
 }
+
+ProductCard.propTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string,
+    url: PropTypes.string,
+    isExact: PropTypes.bool,
+    params: PropTypes.objectOf(PropTypes.string),
+  }).isRequired,
+};
