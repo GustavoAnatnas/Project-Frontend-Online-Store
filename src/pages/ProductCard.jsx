@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductDetails } from '../services/api';
 
@@ -8,6 +9,7 @@ export default class ProductCard extends Component {
     this.state = {
       details: {},
       attributes: [],
+      localStg: [],
     };
   }
 
@@ -25,6 +27,13 @@ export default class ProductCard extends Component {
     });
   }
 
+  onClick = (details) => {
+    const { localStg } = this.state;
+    const list = [details, ...localStg];
+    localStorage.setItem('cart', JSON.stringify(list));
+    this.setState({ localStg: list });
+  }
+
   render() {
     const { details, attributes } = this.state;
     return (
@@ -36,6 +45,17 @@ export default class ProductCard extends Component {
           <aside>
             {attributes}
           </aside>
+          <Link data-testid="shopping-cart-button" to="/Cart">
+            <button
+              type="button"
+              data-testid="product-detail-add-to-cart"
+              onClick={ () => this.onClick(details) }
+            >
+              Adicionar ao Carrinho
+
+            </button>
+          </Link>
+
         </div>
       </div>
     );
