@@ -11,6 +11,7 @@ export default class Categories extends Component {
       selected: '',
       products: [],
       loading: false,
+      localStg: [],
     };
   }
 
@@ -78,7 +79,10 @@ fetchProductsByCategories = async () => {
 }
 
 onClick = (product) => {
-  localStorage.setItem('cart', JSON.stringify(product));
+  const { localStg } = this.state;
+  const list = [product, ...localStg];
+  localStorage.setItem('cart', JSON.stringify(list));
+  this.setState({ localStg: list });
 }
 
 render() {
