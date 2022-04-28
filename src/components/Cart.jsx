@@ -22,67 +22,60 @@ export default class CartItems extends Component {
   }
 
   render() {
-    const { productCart, productCartDetails } = this.props;
+    const { product /* detailCart */ } = this.props;
     const { quantity } = this.state;
-    const condicional = productCart.length === 0 && productCartDetails.length === 0;
+
     return (
       <div>
-        <div>
-          {condicional
-            && <h3 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h3>}
-          {productCart.map((details) => (
-            <div key={ details.id }>
-              <div>
-                <h3 data-testid="shopping-cart-product-name">{details.title}</h3>
-                <img src={ details.thumbnail } alt={ details.title } />
-                <p>{`R$:${details.price}`}</p>
-                <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
-              </div>
-              <button
-                type="button"
-                onClick={ this.add }
-                data-testid="product-increase-quantity"
-              >
-                +
-              </button>
-              <button
-                type="button"
-                onClick={ this.remove }
-                data-testid="product-decrease-quantity"
-              >
-                -
+        <div key={ product.id }>
+          <div>
+            <h3 data-testid="shopping-cart-product-name">{product.title}</h3>
+            <img src={ product.thumbnail } alt={ product.title } />
+            <p>{`R$:${product.price}`}</p>
+            <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
+          </div>
+          <button
+            type="button"
+            onClick={ this.add }
+            data-testid="product-increase-quantity"
+          >
+            +
+          </button>
+          <button
+            type="button"
+            onClick={ this.remove }
+            data-testid="product-decrease-quantity"
+          >
+            -
 
-              </button>
-            </div>
-          )) }
+          </button>
         </div>
         <div>
-          {productCartDetails.map((detail) => (
-            <div key={ detail.id }>
-              <div>
-                <h3 data-testid="shopping-cart-product-name">{detail.title}</h3>
-                <img src={ detail.thumbnail } alt={ detail.title } />
-                <p>{`R$:${detail.price}`}</p>
-                <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
-              </div>
-              <button
-                type="button"
-                onClick={ this.add }
-                data-testid="product-increase-quantity"
-              >
-                +
-
-              </button>
-              <button
-                type="button"
-                onClick={ this.remove }
-                data-testid="product-decrease-quantity"
-              >
-                -
-
-              </button>
+          {/* <div key={ detailCart.id }>
+            <div>
+              <h3 data-testid="shopping-cart-product-name">{detailCart.title}</h3>
+              <img src={ detailCart.thumbnail } alt={ detailCart.title } />
+              <p>{`R$:${detailCart.price}`}</p>
+              <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
             </div>
-          )) }
+            <button
+              type="button"
+              onClick={ this.add }
+              data-testid="product-increase-quantity"
+            >
+              +
+
+            </button>
+            <button
+              type="button"
+              onClick={ this.remove }
+              data-testid="product-decrease-quantity"
+            >
+              -
+
+            </button>
+          </div> */}
+
         </div>
       </div>
     );
@@ -90,6 +83,6 @@ export default class CartItems extends Component {
 }
 
 CartItems.propTypes = {
-  productCart: PropTypes.arrayOf(PropTypes.any).isRequired,
-  productCartDetails: PropTypes.arrayOf(PropTypes.any).isRequired,
+  product: PropTypes.arrayOf(PropTypes.any).isRequired,
+  detailCart: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
