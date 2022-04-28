@@ -36,7 +36,12 @@ export default class CartItems extends Component {
                 <h3 data-testid="shopping-cart-product-name">{details.title}</h3>
                 <img src={ details.thumbnail } alt={ details.title } />
                 <p>{`R$:${details.price}`}</p>
-                <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
+                <p
+                  data-testid="shopping-cart-product-quantity"
+                >
+                  { quantity }
+
+                </p>
               </div>
               <button
                 type="button"
