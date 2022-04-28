@@ -27,10 +27,10 @@ export default class ProductCard extends Component {
     });
   }
 
-  onClick = (details) => {
+  onClick = (product) => {
     const { localStg } = this.state;
-    const list = [details, ...localStg];
-    localStorage.setItem('cartDetails', JSON.stringify(list));
+    const list = [product, ...localStg];
+    localStorage.setItem('cart', JSON.stringify(list));
     this.setState({ localStg: list });
   }
 

@@ -22,12 +22,12 @@ export default class CartItems extends Component {
   }
 
   render() {
-    const { product /* detailCart */ } = this.props;
+    const { product } = this.props;
     const { quantity } = this.state;
 
     return (
       <div>
-        <div key={ product.id }>
+        <div>
           <div>
             <h3 data-testid="shopping-cart-product-name">{product.title}</h3>
             <img src={ product.thumbnail } alt={ product.title } />
@@ -50,39 +50,11 @@ export default class CartItems extends Component {
 
           </button>
         </div>
-        <div>
-          {/* <div key={ detailCart.id }>
-            <div>
-              <h3 data-testid="shopping-cart-product-name">{detailCart.title}</h3>
-              <img src={ detailCart.thumbnail } alt={ detailCart.title } />
-              <p>{`R$:${detailCart.price}`}</p>
-              <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
-            </div>
-            <button
-              type="button"
-              onClick={ this.add }
-              data-testid="product-increase-quantity"
-            >
-              +
-
-            </button>
-            <button
-              type="button"
-              onClick={ this.remove }
-              data-testid="product-decrease-quantity"
-            >
-              -
-
-            </button>
-          </div> */}
-
-        </div>
       </div>
     );
   }
 }
 
 CartItems.propTypes = {
-  product: PropTypes.arrayOf(PropTypes.any).isRequired,
-  // detailCart: PropTypes.arrayOf(PropTypes.any).isRequired,
+  product: PropTypes.objectOf(PropTypes.any).isRequired,
 };

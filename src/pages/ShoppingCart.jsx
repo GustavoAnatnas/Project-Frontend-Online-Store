@@ -6,7 +6,6 @@ export default class Cart extends Component {
     super();
     this.state = {
       productCart: JSON.parse(localStorage.getItem('cart')) || [],
-      detailCart: JSON.parse(localStorage.getItem('cartDetails')) || [],
     };
   }
 
@@ -23,12 +22,6 @@ export default class Cart extends Component {
             product={ detail }
           />
         )) }
-        {/* {detailCart.map((details) => (
-          <CartItems
-            key={ details.id }
-            detailCart={ details }
-          />
-        )) } */}
       </div>
     );
   }
