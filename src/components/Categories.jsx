@@ -81,8 +81,16 @@ fetchProductsByCategories = async () => {
 
 onClick = (product) => {
   const { localStg } = this.state;
+  console.log(product);
   const list = [product, ...localStg];
-  localStorage.setItem('cart', JSON.stringify(list));
+  const teste = localStorage.getItem('cart');
+  const parseJSON = JSON.parse(teste);
+  const find = parseJSON.find((element) => (element.id === product.id));
+  if (find === product.id) {
+    product.available_quantity += 1;
+  } else {
+    localStorage.setItem('cart', JSON.stringify(list));
+  }
   this.setState({ localStg: list });
 }
 

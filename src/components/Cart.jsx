@@ -2,8 +2,28 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class CartItems extends Component {
+  constructor() {
+    super();
+    this.state = {
+      quantity: 1,
+    };
+  }
+
+  add = () => {
+    this.setState((prev) => ({
+      quantity: prev.quantity + 1,
+    }));
+  }
+
+  remove = () => {
+    this.setState((prev) => ({
+      quantity: prev.quantity - 1,
+    }));
+  }
+
   render() {
     const { productCart, productCartDetails } = this.props;
+    const { quantity } = this.state;
     const condicional = productCart.length === 0 && productCartDetails.length === 0;
     return (
       <div>
@@ -16,8 +36,23 @@ export default class CartItems extends Component {
                 <h3 data-testid="shopping-cart-product-name">{details.title}</h3>
                 <img src={ details.thumbnail } alt={ details.title } />
                 <p>{`R$:${details.price}`}</p>
-                <p data-testid="shopping-cart-product-quantity">1</p>
+                <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
               </div>
+              <button
+                type="button"
+                onClick={ this.add }
+                data-testid="product-increase-quantity"
+              >
+                +
+              </button>
+              <button
+                type="button"
+                onClick={ this.remove }
+                data-testid="product-decrease-quantity"
+              >
+                -
+
+              </button>
             </div>
           )) }
         </div>
@@ -28,8 +63,24 @@ export default class CartItems extends Component {
                 <h3 data-testid="shopping-cart-product-name">{detail.title}</h3>
                 <img src={ detail.thumbnail } alt={ detail.title } />
                 <p>{`R$:${detail.price}`}</p>
-                <p data-testid="shopping-cart-product-quantity">1</p>
+                <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
               </div>
+              <button
+                type="button"
+                onClick={ this.add }
+                data-testid="product-increase-quantity"
+              >
+                +
+
+              </button>
+              <button
+                type="button"
+                onClick={ this.remove }
+                data-testid="product-decrease-quantity"
+              >
+                -
+
+              </button>
             </div>
           )) }
         </div>
