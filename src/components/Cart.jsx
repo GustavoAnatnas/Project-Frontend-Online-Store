@@ -84,5 +84,5 @@ export default class CartItems extends Component {
 
 CartItems.propTypes = {
   product: PropTypes.arrayOf(PropTypes.any).isRequired,
-  detailCart: PropTypes.arrayOf(PropTypes.any).isRequired,
+  // detailCart: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
