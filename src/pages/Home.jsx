@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
 import Loading from '../components/Loading';
 import { getProducts } from '../services/api';
+import SearchResults from '../components/searchResults';
 
 export default class Home extends Component {
   constructor() {
@@ -26,12 +27,7 @@ export default class Home extends Component {
     this.setState({ loading: true });
     const fetchProducts = await getProducts(inputSearch);
     const resultsProducts = fetchProducts.results.map((product) => (
-      <div data-testid="product" key={ product.id }>
-        <h3>{product.title}</h3>
-        <img src={ product.thumbnail } alt={ product.title } />
-        <p>{`R$:${product.price}`}</p>
-        <span>Detalhes</span>
-      </div>
+      <SearchResults key={ product.id } product={ product } />
     ));
     this.setState({
       products: resultsProducts,
