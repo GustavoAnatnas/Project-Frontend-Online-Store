@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Categories from '../components/Categories';
 import Loading from '../components/Loading';
 import { getProducts } from '../services/api';
@@ -37,6 +38,7 @@ export default class Home extends Component {
 
   render() {
     const { inputSearch, products, loading } = this.state;
+    const { onClick } = this.props;
     return (
       <div>
         <h1
@@ -67,7 +69,7 @@ export default class Home extends Component {
           </button>
         </Link>
         <div>
-          <Categories />
+          <Categories onClick={ onClick } />
         </div>
         <div>
           {loading ? <Loading /> : products }
@@ -77,3 +79,7 @@ export default class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};

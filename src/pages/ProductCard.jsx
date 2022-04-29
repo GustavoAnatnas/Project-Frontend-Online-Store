@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductDetails } from '../services/api';
-// import { onClick } from ''
 
 export default class ProductCard extends Component {
   constructor() {
@@ -10,7 +9,6 @@ export default class ProductCard extends Component {
     this.state = {
       details: {},
       attributes: [],
-      localStg: [],
     };
   }
 
@@ -28,22 +26,9 @@ export default class ProductCard extends Component {
     });
   }
 
-  onClick = (product) => {
-    const { localStg } = this.state;
-    const list = [...localStg, product];
-    localStorage.setItem('cart', JSON.stringify(list));
-    this.setState({ localStg: list });
-    // const isSame = localStg.map((element) => element.id === product.id);
-    // if (isSame) {
-    //   localStg.forEach((element) => {
-    //     if (element.id === product.id) element.quantity += 1;
-    //   });
-    //   this.setState({ localStg: list });
-    // }
-  }
-
   render() {
     const { details, attributes } = this.state;
+    const { onClick } = this.props;
     return (
       <div>
         <div data-testid="product" key={ details.id }>
@@ -62,7 +47,7 @@ export default class ProductCard extends Component {
           <button
             type="button"
             data-testid="product-detail-add-to-cart"
-            onClick={ () => this.onClick(details) }
+            onClick={ () => onClick(details) }
           >
             Adicionar ao Carrinho
 
@@ -80,4 +65,5 @@ ProductCard.propTypes = {
     isExact: PropTypes.bool,
     params: PropTypes.objectOf(PropTypes.string),
   }).isRequired,
+  onClick: PropTypes.func.isRequired,
 };

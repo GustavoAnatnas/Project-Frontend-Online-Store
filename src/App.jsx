@@ -7,17 +7,41 @@ import Cart from './pages/ShoppingCart';
 // import { getCategories } from './services/api';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      localStg: [],
+    };
+  }
+
+  handleClick= (product) => {
+    const { localStg } = this.state;
+    const list = [...localStg, product];
+    localStorage.setItem('cart', JSON.stringify(list));
+    this.setState({ localStg: list });
+  }
+
   render() {
     return (
       <div>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={ Home } />
+            <Route
+              exact
+              path="/"
+              render={ (props) => (<Home
+                { ...props }
+                onClick={ this.handleClick }
+              />) }
+            />
             <Route exact path="/cart" component={ Cart } />
             <Route
               exact
               path="/productCard/:id"
-              render={ (props) => <ProductCard { ...props } /> }
+              render={ (props) => (<ProductCard
+                { ...props }
+                onClick={ this.handleClick }
+              />) }
             />
           </Switch>
         </BrowserRouter>

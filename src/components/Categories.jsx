@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Loading from './Loading';
 
@@ -11,7 +12,6 @@ export default class Categories extends Component {
       selected: '',
       products: [],
       loading: false,
-      localStg: [],
     };
   }
 
@@ -46,6 +46,7 @@ onChecked = async ({ target }) => {
 
 fetchProductsByCategories = async () => {
   const { selected } = this.state;
+  const { onClick } = this.props;
   this.setState({
     loading: true,
   });
@@ -65,7 +66,7 @@ fetchProductsByCategories = async () => {
       <button
         type="button"
         data-testid="product-add-to-cart"
-        onClick={ () => this.onClick(product) }
+        onClick={ () => onClick(product) }
       >
         Adicionar ao Carrinho
 
@@ -76,13 +77,6 @@ fetchProductsByCategories = async () => {
     loading: false,
     products: resultsProducts,
   });
-}
-
-onClick = (product) => {
-  const { localStg } = this.state;
-  const list = [...localStg, product];
-  localStorage.setItem('cart', JSON.stringify(list));
-  this.setState({ localStg: list });
 }
 
 render() {
@@ -96,3 +90,7 @@ render() {
   );
 }
 }
+
+Categories.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
