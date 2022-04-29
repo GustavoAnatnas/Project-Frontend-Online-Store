@@ -25,10 +25,11 @@ export default class Home extends Component {
 
   fetchProducts = async () => {
     const { inputSearch } = this.state;
+    const { onClick } = this.props;
     this.setState({ loading: true });
     const fetchProducts = await getProducts(inputSearch);
     const resultsProducts = fetchProducts.results.map((product) => (
-      <SearchResults key={ product.id } product={ product } />
+      <SearchResults key={ product.id } product={ product } onClick={ onClick } />
     ));
     this.setState({
       products: resultsProducts,

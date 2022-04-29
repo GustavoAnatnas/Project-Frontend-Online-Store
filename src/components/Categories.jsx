@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Loading from './Loading';
+import SearchResults from './searchResults';
 
 export default class Categories extends Component {
   constructor() {
@@ -52,26 +52,7 @@ fetchProductsByCategories = async () => {
   });
   const fetchProducts = await getProductsFromCategoryAndQuery(selected);
   const resultsProducts = await fetchProducts.results.map((product) => (
-    <div data-testid="product" key={ product.id }>
-      <h3>{product.title}</h3>
-      <img src={ product.thumbnail } alt={ product.title } />
-      <p>{`R$:${product.price}`}</p>
-      <Link
-        to={ `/productCard/${product.id}` }
-        data-testid="product-detail-link"
-      >
-        <span>Detalhes</span>
-
-      </Link>
-      <button
-        type="button"
-        data-testid="product-add-to-cart"
-        onClick={ () => onClick(product) }
-      >
-        Adicionar ao Carrinho
-
-      </button>
-    </div>
+    <SearchResults key={ product.id } product={ product } onClick={ onClick } />
   ));
   this.setState({
     loading: false,
