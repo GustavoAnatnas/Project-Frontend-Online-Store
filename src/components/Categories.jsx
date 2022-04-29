@@ -80,7 +80,7 @@ fetchProductsByCategories = async () => {
 
 onClick = (product) => {
   const { localStg } = this.state;
-  const list = [product, ...localStg];
+  const list = [...localStg, product];
   localStorage.setItem('cart', JSON.stringify(list));
   this.setState({ localStg: list });
 }

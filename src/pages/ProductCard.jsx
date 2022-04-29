@@ -29,9 +29,16 @@ export default class ProductCard extends Component {
 
   onClick = (product) => {
     const { localStg } = this.state;
-    const list = [product, ...localStg];
+    const list = [...localStg, product];
     localStorage.setItem('cart', JSON.stringify(list));
     this.setState({ localStg: list });
+    // const isSame = localStg.map((element) => element.id === product.id);
+    // if (isSame) {
+    //   localStg.forEach((element) => {
+    //     if (element.id === product.id) element.quantity += 1;
+    //   });
+    //   this.setState({ localStg: list });
+    // }
   }
 
   render() {

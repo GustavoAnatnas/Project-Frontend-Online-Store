@@ -6,12 +6,13 @@ export default class Cart extends Component {
     super();
     this.state = {
       productCart: JSON.parse(localStorage.getItem('cart')) || [],
+      // detailCart: JSON.parse(localStorage.getItem('cart')) || [],
     };
   }
 
   render() {
-    const { productCart, detailCart } = this.state;
-    const condicional = productCart.length === 0 && detailCart.length === 0;
+    const { productCart } = this.state;
+    const condicional = productCart.length === 0;
     return (
       <div>
         {condicional
