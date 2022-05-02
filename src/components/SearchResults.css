@@ -1,0 +1,7 @@
+.list-product {
+  align-items: center;
+  border: solid black 1px;
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+}

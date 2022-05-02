@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './SearchResults.css';
 
 export default class SearchResults extends Component {
   render() {
     const { product, onClick } = this.props;
     return (
-      <div data-testid="product" key={ product.id }>
+      <div className="list-product" data-testid="product" key={ product.id }>
         <h3>{product.title}</h3>
-        <img src={ product.thumbnail } alt={ product.title } />
+        <img src={ product.thumbnail } alt={ product.title } width='150px'/>
         <p>{`R$:${product.price}`}</p>
         <Link
           to={ `/productCard/${product.id}` }

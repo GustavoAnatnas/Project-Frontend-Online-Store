@@ -5,12 +5,12 @@
 .categories {
   display: flex;
   flex-direction: column;
+  width: 250px;
 }
 
 .products {
   display: flex;
-  flex-direction: column;
-  margin-left: 300px;
+  flex-flow: row wrap;
   max-height: 500px;
   max-width: 40%;
 }
