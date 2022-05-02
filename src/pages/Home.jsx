@@ -50,22 +50,23 @@ export default class Home extends Component {
             Digite algum termo de pesquisa ou escolha uma categoria.
 
           </h1>
-          <input
-            data-testid="query-input"
-            type="text"
-            value={ inputSearch }
-            name="inputSearch"
-            onChange={ this.handleInputChange }
-          />
-          <button
-            type="button"
-            data-testid="query-button"
-            onClick={ this.fetchProducts }
-          >
-            Pesquisar
+          <div>
+            <input
+              data-testid="query-input"
+              type="text"
+              value={ inputSearch }
+              name="inputSearch"
+              onChange={ this.handleInputChange }
+            />
+            <button
+              type="button"
+              data-testid="query-button"
+              onClick={ this.fetchProducts }
+            >
+              Pesquisar
 
-          </button>
-
+            </button>
+          </div>
           <Link
             className="forms"
             data-testid="shopping-cart-button"

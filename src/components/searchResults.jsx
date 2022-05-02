@@ -9,7 +9,7 @@ export default class SearchResults extends Component {
     return (
       <div className="list-product" data-testid="product" key={ product.id }>
         <h3>{product.title}</h3>
-        <img src={ product.thumbnail } alt={ product.title } width='150px'/>
+        <img src={ product.thumbnail } alt={ product.title } width="150px" />
         <p>{`R$:${product.price}`}</p>
         <Link
           to={ `/productCard/${product.id}` }

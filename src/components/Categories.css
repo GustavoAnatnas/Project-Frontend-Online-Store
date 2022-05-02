@@ -11,8 +11,15 @@
 .products {
   display: flex;
   flex-flow: row wrap;
-  max-height: 500px;
-  max-width: 40%;
+  justify-content: space-around;
+  left: 38%;
+  margin-bottom: 1px;
+  margin-left: -110px;
+  margin-top: -40px;
+  max-height: 1px;
+  position: absolute;
+  top: 25%;
+  width: 885px;
 }
 
 section {
