@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import Loading from './Loading';
 import SearchResults from './searchResults';
+import '../pages/Home.css';
+import './Categories.css';
 
 export default class Categories extends Component {
   constructor() {
@@ -18,7 +20,7 @@ export default class Categories extends Component {
   async componentDidMount() {
     const fetchCategories = await getCategories();
     const categoriesNames = fetchCategories.map((element) => (
-      <div key={ element.id }>
+      <div className="itens" key={ element.id }>
         <label htmlFor={ element.id }>
           <input
             value={ element.id }
@@ -63,11 +65,16 @@ fetchProductsByCategories = async () => {
 render() {
   const { categories, products, loading } = this.state;
   return (
-    <div>
-      {categories}
-
-      {loading ? <Loading /> : products}
-    </div>
+    <section>
+      <div className="product-page">
+        <div className="categories">
+          {categories}
+        </div>
+      </div>
+      <div className="products">
+        {loading ? <Loading /> : products}
+      </div>
+    </section>
   );
 }
 }

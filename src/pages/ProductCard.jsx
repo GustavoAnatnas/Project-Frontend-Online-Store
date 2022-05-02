@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductDetails } from '../services/api';
+import './ProductCard.css';
 
 export default class ProductCard extends Component {
   constructor() {
@@ -30,7 +31,7 @@ export default class ProductCard extends Component {
     const { details, attributes } = this.state;
     const { onClick } = this.props;
     return (
-      <div>
+      <div className="product-card">
         <div data-testid="product" key={ details.id }>
           <h3 data-testid="product-detail-name">{details.title}</h3>
           <img src={ details.thumbnail } alt={ details.title } />

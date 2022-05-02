@@ -1,0 +1,20 @@
+.product-page {
+  display: flex;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  margin-left: 300px;
+  max-height: 500px;
+  max-width: 40%;
+}
+
+section {
+  display: flex;
+}

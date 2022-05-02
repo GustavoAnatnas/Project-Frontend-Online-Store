@@ -5,6 +5,7 @@ import Categories from '../components/Categories';
 import Loading from '../components/Loading';
 import { getProducts } from '../services/api';
 import SearchResults from '../components/searchResults';
+import './Home.css';
 
 export default class Home extends Component {
   constructor() {
@@ -41,36 +42,44 @@ export default class Home extends Component {
     const { inputSearch, products, loading } = this.state;
     const { onClick } = this.props;
     return (
-      <div>
-        <h1
-          data-testid="home-initial-message"
-        >
-          Digite algum termo de pesquisa ou escolha uma categoria.
+      <div className="container">
+        <div className="forms">
+          <h1
+            data-testid="home-initial-message"
+          >
+            Digite algum termo de pesquisa ou escolha uma categoria.
 
-        </h1>
-        <input
-          data-testid="query-input"
-          type="text"
-          value={ inputSearch }
-          name="inputSearch"
-          onChange={ this.handleInputChange }
-        />
-        <button
-          type="button"
-          data-testid="query-button"
-          onClick={ this.fetchProducts }
-        >
-          Pesquisar
+          </h1>
+          <input
+            data-testid="query-input"
+            type="text"
+            value={ inputSearch }
+            name="inputSearch"
+            onChange={ this.handleInputChange }
+          />
+          <button
+            type="button"
+            data-testid="query-button"
+            onClick={ this.fetchProducts }
+          >
+            Pesquisar
 
-        </button>
-
-        <Link data-testid="shopping-cart-button" to="/Cart">
-          <button type="button">
-            Carrinho
           </button>
-        </Link>
-        <div>
-          <Categories onClick={ onClick } />
+
+          <Link
+            className="forms"
+            data-testid="shopping-cart-button"
+            to="/Cart"
+          >
+            <button type="button">
+              Carrinho
+            </button>
+          </Link>
+        </div>
+        <div className="category">
+          <div>
+            <Categories onClick={ onClick } />
+          </div>
         </div>
         <div>
           {loading ? <Loading /> : products }

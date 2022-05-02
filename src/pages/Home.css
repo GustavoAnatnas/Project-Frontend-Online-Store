@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(232, 230, 230);
+  font-family: fantasy;
+}
+
+.container {
+  display: flex;
+  text-align: center;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  background-color: white;
+  border: solid rgba(46, 46, 46, 0.967) 1px;
+  border-radius: 3px;
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  text-align: left;
+  width: 220px;
+}
+
+.itens {
+  border-radius: 3px;
+  display: flex;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.itens :hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.itens :active {
+  opacity: 1;
+}
+
+.category input {
+  appearance: none;
+}
