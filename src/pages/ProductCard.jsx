@@ -35,7 +35,7 @@ export default class ProductCard extends Component {
         <div data-testid="product" key={ details.id }>
           <h3 data-testid="product-detail-name">{details.title}</h3>
           <img src={ details.thumbnail } alt={ details.title } />
-          <p>{`R$:${details.price}`}</p>
+          <p>{`R$: ${details.price}`}</p>
           <aside>
             {attributes}
           </aside>
