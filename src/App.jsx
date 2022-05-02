@@ -16,14 +16,27 @@ class App extends React.Component {
 
   handleClick= (product) => {
     const { localStg } = this.state;
-    const list = [...localStg, product];
-    localStorage.setItem('cart', JSON.stringify(list));
-    this.setState({ localStg: list });
+    let prodList = [...localStg];
+    // const list = [...localStg, product];
+    const element = prodList.find((ele) => ele.id === product.id);
+    if (element) {
+      prodList = prodList.map((prod) => {
+        if (prod.id === product.id) {
+          prod.quantity += 1;
+        }
+        return prod;
+      });
+    } else {
+      prodList = [...prodList, { ...product, quantity: 1 }];
+    }
+    // localStorage.setItem('cart', JSON.stringify(list));
+    localStorage.setItem('cart', JSON.stringify(prodList));
+    this.setState({ localStg: prodList });
   }
 
   render() {
     return (
-      <div>
+      <div className="container">
         <BrowserRouter>
           <Switch>
             <Route
