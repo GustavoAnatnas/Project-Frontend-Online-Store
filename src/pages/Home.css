@@ -9,15 +9,34 @@ body {
 }
 
 .forms {
-  color: green;
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
 }
+
+.forms input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 44px;
+  padding: 12px 20px;
+  width: 400px;
+}
+
+
+.forms a {
+  position: absolute;
+  right: 40px;
+}
+
 
 .category {
   background-color: white;
   border: solid rgba(46, 46, 46, 0.967) 1px;
   border-radius: 3px;
   display: flex;
-  margin-top: 5px;
+  margin-top: 20px;
   padding: 10px;
   text-align: left;
   width: 220px;

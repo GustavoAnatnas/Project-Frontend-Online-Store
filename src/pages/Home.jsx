@@ -43,22 +43,25 @@ export default class Home extends Component {
     const { onClick } = this.props;
     return (
       <div className="container">
-        <div className="forms">
-          <h1
-            data-testid="home-initial-message"
-          >
-            Digite algum termo de pesquisa ou escolha uma categoria.
 
-          </h1>
+        <h3
+          data-testid="home-initial-message"
+        >
+          Digite algum termo de pesquisa ou escolha uma categoria.
+
+        </h3>
+        <div className="forms">
           <div>
             <input
               data-testid="query-input"
+              placeholder="Digite aqui"
               type="text"
               value={ inputSearch }
               name="inputSearch"
               onChange={ this.handleInputChange }
             />
             <button
+              className="search-button"
               type="button"
               data-testid="query-button"
               onClick={ this.fetchProducts }
@@ -67,15 +70,15 @@ export default class Home extends Component {
 
             </button>
           </div>
-          <Link
-            className="forms"
-            data-testid="shopping-cart-button"
-            to="/Cart"
-          >
-            <button type="button">
-              Carrinho
-            </button>
-          </Link>
+          <div className="cart">
+            <Link
+              className="forms"
+              data-testid="shopping-cart-button"
+              to="/Cart"
+            >
+              <img src="https://cdn-icons-png.flaticon.com/512/126/126510.png" alt="carrinho" width="50px"/>
+            </Link>
+          </div>
         </div>
         <div className="category">
           <div>
