@@ -76,7 +76,7 @@ export default class Home extends Component {
               data-testid="shopping-cart-button"
               to="/Cart"
             >
-              <img src="https://cdn-icons-png.flaticon.com/512/126/126510.png" alt="carrinho" width="50px"/>
+              <img src="https://cdn-icons-png.flaticon.com/512/126/126510.png" alt="carrinho" width="50px" />
             </Link>
           </div>
         </div>
