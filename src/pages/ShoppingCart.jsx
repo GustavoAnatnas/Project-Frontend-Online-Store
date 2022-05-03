@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CartItems from '../components/Cart';
 
 export default class Cart extends Component {
@@ -6,7 +7,6 @@ export default class Cart extends Component {
     super();
     this.state = {
       productCart: JSON.parse(localStorage.getItem('cart')) || [],
-      // detailCart: JSON.parse(localStorage.getItem('cart')) || [],
     };
   }
 
@@ -23,6 +23,11 @@ export default class Cart extends Component {
             product={ detail }
           />
         )) }
+        <Link to="./checkout">
+          <button data-testid="checkout-products" type="button">
+            Checkout
+          </button>
+        </Link>
       </div>
     );
   }

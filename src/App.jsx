@@ -4,6 +4,7 @@ import './App.css';
 import Home from './pages/Home';
 import ProductCard from './pages/ProductCard';
 import Cart from './pages/ShoppingCart';
+import Checkout from './pages/Checkout';
 // import { getCategories } from './services/api';
 
 class App extends React.Component {
@@ -56,6 +57,7 @@ class App extends React.Component {
                 onClick={ this.handleClick }
               />) }
             />
+            <Route exact path="/checkout" component={ Checkout } />
           </Switch>
         </BrowserRouter>
       </div>
