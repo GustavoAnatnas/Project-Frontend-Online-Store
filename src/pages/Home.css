@@ -32,8 +32,7 @@ body {
 
 .category {
   background-color: white;
-  border: solid rgba(46, 46, 46, 0.967) 1px;
-  border-radius: 3px;
+  border-radius: 5px;
   display: flex;
   margin-top: 85px;
   padding: 10px;
@@ -63,7 +62,7 @@ body {
 
 .itens :hover {
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .itens :active {
