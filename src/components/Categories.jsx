@@ -68,6 +68,7 @@ render() {
     <section>
       <div className="product-page">
         <div className="categories">
+          <h3 className="categoryh3">selecione por categoria</h3>
           {categories}
         </div>
       </div>

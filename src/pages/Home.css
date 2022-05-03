@@ -41,6 +41,18 @@ body {
   width: 220px;
 }
 
+.categoryh3 {
+  background-color: #2e94dd;
+  border: solid black 1px;
+  border-radius: 5px;
+  color: white;
+  margin-left: 0;
+  margin-top: 0;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+
 .itens {
   border-radius: 3px;
   display: flex;
