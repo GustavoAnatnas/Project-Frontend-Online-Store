@@ -6,6 +6,7 @@ export default class CartItems extends Component {
     super();
     this.state = {
       quantity: 1,
+      buttonDisabled: false,
     };
   }
 
@@ -23,7 +24,7 @@ export default class CartItems extends Component {
 
   render() {
     const { product } = this.props;
-    const { quantity } = this.state;
+    const { quantity, buttonDisabled } = this.state;
 
     return (
       <div>
@@ -31,7 +32,7 @@ export default class CartItems extends Component {
           <div>
             <h3 data-testid="shopping-cart-product-name">{product.title}</h3>
             <img src={ product.thumbnail } alt={ product.title } />
-            <p>{`R$:${product.price}`}</p>
+            <p>{`R$:${(product.price)}`}</p>
             <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
           </div>
           <button
@@ -41,14 +42,17 @@ export default class CartItems extends Component {
           >
             +
           </button>
-          <button
-            type="button"
-            onClick={ this.remove }
-            data-testid="product-decrease-quantity"
-          >
-            -
-
-          </button>
+          {quantity <= 0
+            ? buttonDisabled === true
+            : (
+              <button
+                type="button"
+                onClick={ this.remove }
+                disabled={ buttonDisabled }
+                data-testid="product-decrease-quantity"
+              >
+                -
+              </button>)}
         </div>
       </div>
     );
