@@ -28,34 +28,38 @@ export default class CartItems extends Component {
     const { quantity, buttonDisabled } = this.state;
 
     return (
-      <div className="cart">
-        <div className="cartItens">
-          <div>
-            <h3 data-testid="shopping-cart-product-name">{product.title}</h3>
-            <img src={ product.thumbnail } alt={ product.title } />
-            <p>{`R$:${(product.price)}`}</p>
+      <div>
+        <div className="cart">
+          <div className="cartItens">
+            <div>
+              <h3 data-testid="shopping-cart-product-name">{product.title}</h3>
+              <img src={ product.thumbnail } alt={ product.title } width="150px" />
+              <p>{`R$:${(product.price)}`}</p>
+
+            </div>
+            {quantity <= 0
+              ? buttonDisabled === true
+              : (
+                <button
+                  className="button"
+                  type="button"
+                  onClick={ this.remove }
+                  disabled={ buttonDisabled }
+                  data-testid="product-decrease-quantity"
+                >
+                  -
+                </button>)}
+            <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
+            <button
+              className="button"
+              type="button"
+              onClick={ this.add }
+              data-testid="product-increase-quantity"
+            >
+              +
+            </button>
 
           </div>
-          {quantity <= 0
-            ? buttonDisabled === true
-            : (
-              <button
-                type="button"
-                onClick={ this.remove }
-                disabled={ buttonDisabled }
-                data-testid="product-decrease-quantity"
-              >
-                -
-              </button>)}
-          <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
-          <button
-            type="button"
-            onClick={ this.add }
-            data-testid="product-increase-quantity"
-          >
-            +
-          </button>
-
         </div>
       </div>
     );
