@@ -29,7 +29,6 @@ export default class CartItems extends Component {
 
     return (
       <div className="cart">
-        <header className="headerCart">Carrinho de Compras</header>
         <div className="cartItens">
           <div>
             <h3 data-testid="shopping-cart-product-name">{product.title}</h3>

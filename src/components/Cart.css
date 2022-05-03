@@ -1,5 +1,10 @@
 .cart {
-  border: 2px solid black;
+  margin: auto;
+  padding: 10px;
+  width: 600px;
+
+  /* border: 2px solid black; */
+
 }
 
 .headerCart {
@@ -17,8 +22,14 @@
 .cartItens {
   align-items: center;
   background-color: white;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 40px;
+}
+
+.cartItens :hover {
+  box-shadow: 10px 5px 5px  rgb(167, 167, 167);
 }
 

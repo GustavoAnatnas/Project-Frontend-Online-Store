@@ -15,6 +15,7 @@ export default class Cart extends Component {
     const condicional = productCart.length === 0;
     return (
       <div>
+        <header className="headerCart">Carrinho de Compras</header>
         {condicional
             && <h3 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h3>}
         {productCart.map((detail) => (
