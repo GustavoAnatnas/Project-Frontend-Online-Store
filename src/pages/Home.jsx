@@ -85,7 +85,7 @@ export default class Home extends Component {
             <Categories onClick={ onClick } />
           </div>
         </div>
-        <div>
+        <div className="products">
           {loading ? <Loading /> : products }
         </div>
 
