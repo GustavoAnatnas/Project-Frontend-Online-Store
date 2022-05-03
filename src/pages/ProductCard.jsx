@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductDetails } from '../services/api';
 import './ProductCard.css';
-import RateProduct from '../components/RateProduct';
 
 export default class ProductCard extends Component {
   constructor() {
@@ -52,10 +51,8 @@ export default class ProductCard extends Component {
             onClick={ () => onClick(details) }
           >
             Adicionar ao Carrinho
-
           </button>
         </div>
-        <RateProduct />
       </div>
     );
   }
