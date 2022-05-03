@@ -17,7 +17,7 @@ class App extends React.Component {
   handleClick= (product) => {
     const { localStg } = this.state;
     let prodList = [...localStg];
-    // const list = [...localStg, product];
+    // let prodList = [...localStg, product];
     const element = prodList.find((ele) => ele.id === product.id);
     if (element) {
       prodList = prodList.map((prod) => {
