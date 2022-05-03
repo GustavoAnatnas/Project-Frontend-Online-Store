@@ -16,9 +16,9 @@
 
 .cartItens {
   align-items: center;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: white;
 }
 
