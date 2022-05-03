@@ -4,13 +4,32 @@ export default class RateProduct extends Component {
   constructor() {
     super();
     this.state = {
-
+      localStg: [],
     };
   }
 
-  // handleCLick = () => {
-  //   localStorage.setItem('saveRate', JSON.stringify(savedRates));
-  // };
+  componentDidMount() {
+    const teste = localStorage.getItem('saveRate');
+    const json = JSON.parse(teste);
+    if (json !== null) {
+      this.setState({
+        localStg: json,
+      });
+    } else {
+      this.setState({
+        localStg: [],
+      });
+    }
+  }
+
+  handleCLick = () => {
+    const { email, rate, textarea, localStg } = this.state;
+    const savedRates = [...localStg, { email, rate, textarea }];
+    localStorage.setItem('saveRate', JSON.stringify(savedRates));
+    this.setState({
+      localStg: savedRates,
+    });
+  };
 
   handleChange = ({ target }) => {
     const { value, name } = target;
@@ -20,6 +39,7 @@ export default class RateProduct extends Component {
   }
 
   render() {
+    const { localStg } = this.state;
     return (
       <form>
         <input
@@ -67,7 +87,7 @@ export default class RateProduct extends Component {
         />
         <textarea
           data-testid="product-detail-evaluation"
-          name="text-area"
+          name="textarea"
           onChange={ this.handleChange }
         />
         <button
@@ -78,6 +98,15 @@ export default class RateProduct extends Component {
           Avaliar
 
         </button>
+        <div>
+          {localStg && localStg.map((element, index) => (
+            <div key={ index }>
+              <div>{ element.email }</div>
+              <div>{ element.rate }</div>
+              <div>{element.textarea }</div>
+            </div>
+          ))}
+        </div>
       </form>
     );
   }
