@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductDetails } from '../services/api';
 import './ProductCard.css';
+import RateProduct from '../components/RateProduct';
 
 export default class ProductCard extends Component {
   constructor() {
@@ -54,6 +55,7 @@ export default class ProductCard extends Component {
 
           </button>
         </div>
+        <RateProduct />
       </div>
     );
   }
