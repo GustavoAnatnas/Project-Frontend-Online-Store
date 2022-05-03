@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Cart.css';
 
 export default class CartItems extends Component {
   constructor() {
@@ -27,21 +28,15 @@ export default class CartItems extends Component {
     const { quantity, buttonDisabled } = this.state;
 
     return (
-      <div>
-        <div>
+      <div className="cart">
+        <header className="headerCart">Carrinho de Compras</header>
+        <div className="cartItens">
           <div>
             <h3 data-testid="shopping-cart-product-name">{product.title}</h3>
             <img src={ product.thumbnail } alt={ product.title } />
             <p>{`R$:${(product.price)}`}</p>
-            <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
+
           </div>
-          <button
-            type="button"
-            onClick={ this.add }
-            data-testid="product-increase-quantity"
-          >
-            +
-          </button>
           {quantity <= 0
             ? buttonDisabled === true
             : (
@@ -53,6 +48,15 @@ export default class CartItems extends Component {
               >
                 -
               </button>)}
+          <p data-testid="shopping-cart-product-quantity">{ quantity }</p>
+          <button
+            type="button"
+            onClick={ this.add }
+            data-testid="product-increase-quantity"
+          >
+            +
+          </button>
+
         </div>
       </div>
     );

@@ -1,0 +1,24 @@
+.cart {
+  border: 2px solid black;
+}
+
+.headerCart {
+  background-color: #2e94dd;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: xx-large;
+  font-weight: 700;
+  height: 90px;
+  justify-content: center;
+  width: 100%;
+}
+
+.cartItens {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: white;
+}
+

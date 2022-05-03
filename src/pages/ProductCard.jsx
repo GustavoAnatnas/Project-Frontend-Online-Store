@@ -41,10 +41,12 @@ export default class ProductCard extends Component {
             {attributes}
           </aside>
           <p data-testid="shopping-cart-product-quantity">1</p>
-          <Link data-testid="shopping-cart-button" to="/Cart">
-            <button type="button">
-              Carrinho
-            </button>
+          <Link
+            className="forms"
+            data-testid="shopping-cart-button"
+            to="/Cart"
+          >
+            <img src="https://cdn-icons-png.flaticon.com/512/126/126510.png" alt="carrinho" width="30px" />
           </Link>
           <button
             type="button"
