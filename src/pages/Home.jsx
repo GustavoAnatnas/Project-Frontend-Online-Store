@@ -43,18 +43,23 @@ export default class Home extends Component {
     const { onClick } = this.props;
     return (
       <div className="container">
-
-        <h3
-          data-testid="home-initial-message"
-        >
-          Digite algum termo de pesquisa ou escolha uma categoria.
-
-        </h3>
+        <div className="header">
+          <header>
+            <h1>Frontend-online-store</h1>
+          </header>
+        </div>
         <div className="forms">
+          <h3
+            className="search-h3"
+            data-testid="home-initial-message"
+          >
+            Digite algum termo de pesquisa ou escolha uma categoria.
+
+          </h3>
           <div>
             <input
               data-testid="query-input"
-              placeholder="Digite aqui"
+              placeholder="Busque aqui"
               type="text"
               value={ inputSearch }
               name="inputSearch"

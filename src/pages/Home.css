@@ -12,6 +12,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   margin: auto;
+  margin-top: 5px;
 }
 
 .forms input {
@@ -70,4 +71,8 @@ body {
 
 .category input {
   appearance: none;
+}
+
+.header {
+  background-color: #2e94dd;
 }
