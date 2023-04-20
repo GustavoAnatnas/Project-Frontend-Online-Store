@@ -1,4 +1,4 @@
-# App de Delivery
+# Front-End Online Store
 
 ## Descrição:
 
